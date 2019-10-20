@@ -1,0 +1,41 @@
+body{
+    background-image: url("img/new-background.jpg");
+  }
+  h1{
+      text-align: center;
+      margin: 0 auto;
+      background-color: rgba(13, 13, 13, 0.8);
+      max-width: 1000px;
+      color: #DDDDDD;
+  }
+  #list{
+    text-align: left;
+    list-style-position: horizontal;
+    background-color: rgba(13, 13, 13, 0.8);
+    padding-left: 75px;
+    padding-right: 50px;
+    color: #DDDDDD;
+    max-width: 100px;
+    border: solid black;
+  }
+  #pic-container{
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(13, 13, 13, 0.8);
+    max-width: 1000px;
+    border: solid black;
+  }
+  img{
+    margin-right: 10px;
+    max-height: 200px;
+  }
+  #click-me{
+    text-align: left;
+    list-style-position: horizontal;
+    background-color: rgba(13, 13, 13, 0.8);
+    padding-left: 33px;
+    padding-right: 33px;
+    border: solid black;
+    color: #DDDDDD;
+    max-width: 100px;
+  }

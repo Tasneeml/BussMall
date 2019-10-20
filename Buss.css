@@ -1,0 +1,52 @@
+body{
+    font-style: italic;
+    background-image: url("https://st2.depositphotos.com/1003734/8737/i/950/depositphotos_87374210-stock-photo-yellow-orange-background.jpg");
+  }
+  h1{
+      text-align: center;
+      margin: 0 auto;
+      background-color: rgba(46, 13, 13, 0.8);
+      max-width: 1000px;
+      color: rgb(206, 179, 28);
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      font-size: 60px;
+  }
+  #list{
+    text-align: left;
+    list-style-position: horizontal;
+    background-color: orange;
+    padding-right: 50px;
+    color: rgb(87, 57, 33);
+    max-width: 100px;
+    border: solid rgb(216, 159, 36);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+  }
+  #pic-container{
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(53, 12, 12, 0.8);
+    color: rgb(173, 126, 37);
+    max-width: 1000px;
+    border: solid rgb(218, 203, 75);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+  }
+  img{
+    margin-right: 10px;
+    max-height: 200px;
+  }
+  #click-me{
+    text-align: left;
+    list-style-position: horizontal;
+    background-color: rgba(209, 124, 26, 0.8);
+    padding-left: 33px;
+    padding-right: 33px;
+    border: solid black;
+    color: rgb(7, 6, 6);
+    max-width: 100px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 16px;
+  }
