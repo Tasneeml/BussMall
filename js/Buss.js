@@ -19,7 +19,7 @@ Gproduct.centerTitle = document.getElementById('center-title');
 Gproduct.rightTitle = document.getElementById('right-title');
 
 Gproduct.leftObject = null;
-Gproduct.centerObject= null;
+Gproduct.centerObject = null;
 Gproduct.rightObject = null;
 
 new Gproduct('Bag', 'img/bag.jpg');
@@ -87,15 +87,12 @@ function randomInRange(min, max) {
   var rand = Math.floor(Math.random() * range) + min
   return rand;
 }
-function updateTotals() {
-  var tableBody = document.getElementById('newtab');
-  tableBody.innerHTML = '';
+function rendersantence() {
+  var up = document.getElementById('ulnew');
   for (var i = 0; i < Gproduct.all.length; i++) {
-    var produc = Gproduct.all[i];
-    var row = addElement('tr', tableBody);
-    addElement('td', row, produc.title);
-    addElement('td', row, '' + produc.clickCtr);
-    addElement('td', row, '' + produc.shownCtr);
+      addElement ('p', up, rownew )
+      var image = Gproduct.all[i];
+      var rownew = (image.title +  ' had ' + image.clickCtr +' votes '+ ' and was shown ' +  image.shownCtr + ' times ');
   }
 }
 function addElement(tag, container, text) {
@@ -105,7 +102,7 @@ function addElement(tag, container, text) {
     element.textContent = text;
   }
   return element;
-}
+};
 function clickHandler(event) {
   var clickedId = event.target.id;
   var ProductClicked;
@@ -121,16 +118,71 @@ function clickHandler(event) {
   if (ProductClicked) {
     ProductClicked.clickCtr++;
     Gproduct.roundCtr++;
-    updateTotals();
+
     if (Gproduct.roundCtr === Gproduct.roundLimit) {
+
+
+      // this is what runs when clicking is done
       alert('No more clicking for you plz!!');
       Gproduct.container.removeEventListener('click', clickHandler);
+      rendersantence() ;
+renderchart();
+
+
     } else {
+
+      // this happens every time we are NOT at the limit
       renderNewProduct();
+
     }
   }
+};
+function renderchart() {
+  var productArray = [];
+  var clickArray = [];
+  var ShownArray = [];
+  for (let i = 0; i < Gproduct.all.length; i++) {
+    var ProductInstent = Gproduct.all[i];
+    productArray.push(ProductInstent.title);
+    clickArray.push(ProductInstent.clickCtr);
+    ShownArray.push(ProductInstent.shownCtr);
+  }
+  var ctx = document.getElementById('Chart').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck ',
+        'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'],
+      datasets: [
+        {
+          label: 'Votes ',
+          backgroundColor: 'yellow',
+          borderColor: 'black',
+          data: clickArray,
+        },
+
+        {
+          label: 'Shown',
+          backgroundColor: 'gray',
+          borderColor: 'white',
+          data: ShownArray,
+        }
+      ],
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }
+          ]
+        }
+      }
+    }
+  }
+  )
 }
 
+
 Gproduct.container.addEventListener('click', clickHandler);
-updateTotals();
 renderNewProduct();
