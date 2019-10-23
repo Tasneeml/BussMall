@@ -43,6 +43,19 @@ new Gproduct('usb', 'img/usb.jpg');
 new Gproduct('water-can', 'img/water-can.jpg');
 new Gproduct('wine-glass', 'img/wine-glass.jpg');
 
+
+function setUpEventListener () {
+  productElement.addEventListener('click', renderAllFunctions);
+  button.addEventListener('click', clear);
+}
+
+function clear(){
+  localStorage.clear();
+  location.reload();
+}
+
+
+
 function renderNewProduct() {
   var forbidden = [Gproduct.leftObject, Gproduct.centerObject, Gproduct.rightObject];
 
@@ -94,6 +107,8 @@ function rendersantence() {
       var image = Gproduct.all[i];
       var rownew = (image.title +  ' had ' + image.clickCtr +' votes '+ ' and was shown ' +  image.shownCtr + ' times ');
   }
+
+
 }
 function addElement(tag, container, text) {
   var element = document.createElement(tag);
@@ -106,6 +121,8 @@ function addElement(tag, container, text) {
 function clickHandler(event) {
   var clickedId = event.target.id;
   var ProductClicked;
+  setitem();
+
   if (clickedId === 'left-imgaes') {
     ProductClicked = Gproduct.leftObject;
   } else if (clickedId === 'center-images') {
@@ -137,6 +154,18 @@ renderchart();
     }
   }
 };
+
+function setitem(){
+  localStorage.setItem('product', JSON.stringify(Gproduct.all));
+
+
+}
+function getitem(){
+  var data= JSON.parse(localStorage.getItem('product'));
+  if (data){
+    Gproduct.all = data;
+  }
+}
 function renderchart() {
   var productArray = [];
   var clickArray = [];
@@ -185,4 +214,5 @@ function renderchart() {
 
 
 Gproduct.container.addEventListener('click', clickHandler);
+getitem();
 renderNewProduct();
