@@ -161,9 +161,16 @@ function setitem(){
 
 }
 function getitem(){
-  var data= JSON.parse(localStorage.getItem('product'));
+  var data= localStorage.getItem('product');
   if (data){
-    Gproduct.all = data;
+    var Gpro=JSON.parse(data);
+    for (var i=0;i<Gpro.length;i++){
+      var Gp=Gpro[i];
+      var currentGp=Gproduct.all[i];
+      currentGp.clickCtr=Gp.clickCtr;
+      currentGp.shownCtr=Gp.shownCtr;
+    }
+  
   }
 }
 function renderchart() {
