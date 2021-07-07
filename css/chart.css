@@ -1,0 +1,21 @@
+  
+body{
+    background-image: url("img/new-background.jpg");
+  }
+  canvas{
+    width: 75%;
+    min-width: 400px;
+    background-color: rgba(13, 13, 13, 0.65);
+    color: #999999;
+  }
+  #click-me{
+    text-align: left;
+    list-style-position: horizontal;
+    background-color: rgba(13, 13, 13, 0.8);
+    padding-left: 33px;
+    padding-right: 33px;
+    border: solid black;
+    color: #DDDDDD;
+    max-width: 100px;
+    margin: 0 auto;
+  }
